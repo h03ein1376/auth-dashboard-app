@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
 import Button from "../ui/button/button";
 import styles from "./dashboard.module.scss";
+import Image from "next/image";
 
 export default function DashboardClient() {
   const { user, isChecking, logout } = useAuth();
@@ -23,8 +24,9 @@ export default function DashboardClient() {
   return (
     <div className={styles.dashboardContainer}>
       <div className={styles.dashboardBox}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
+          width={120}
+          height={120}
           src={user.picture.large}
           alt="User Avatar"
           className={styles.avatar}
