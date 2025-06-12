@@ -1,5 +1,11 @@
 import AuthForm from "@/components/auth-form/auth-form";
 import styles from "./auth.module.scss";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ورود و ثبت نام",
+  description: "برای ورود به حساب کاربری خود، اطلاعات را وارد کنید.",
+};
 
 export default function AuthPage() {
   return (
