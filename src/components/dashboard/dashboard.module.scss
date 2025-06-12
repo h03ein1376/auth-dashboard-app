@@ -1,0 +1,67 @@
+.dashboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fafafa;
+  padding: 1rem;
+}
+
+.dashboardBox {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #eee;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcomeMessage {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 0.25rem;
+  }
+
+  .email {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 2rem;
+  }
+
+  .logoutButton {
+    padding: 0.8rem 2rem;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+}
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+}
