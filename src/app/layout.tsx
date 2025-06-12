@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/context/auth-context";
 import type { Metadata } from "next";
 import { Lalezar } from "next/font/google";
 
@@ -9,7 +10,7 @@ const lalezar = Lalezar({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | احراز هویت", 
+    template: "%s | احراز هویت",
     default: "سیستم احراز هویت",
   },
   description: "پروژه نمونه برای سیستم احراز هویت با Next.js",
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={lalezar.className}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
