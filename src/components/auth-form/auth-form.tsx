@@ -17,11 +17,17 @@ export default function AuthForm() {
     if (user) router.push("/");
   }, [user, router]);
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const digitsOnly = value.replace(/[^0-9]/g, "");
+    const limitedDigits = digitsOnly.slice(0, 11);
+    setPhone(limitedDigits);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const phoneRegex = /^09\d{9}$/;
-    if (!phoneRegex.test(phone)) {
-      setError("فرمت شماره موبایل صحیح نیست (مثال: 09123456789)");
+    if (phone.length !== 11 || !phone.startsWith("09")) {
+      setError("شماره موبایل باید با 09 شروع شود و 11 رقم باشد.");
       return;
     }
     setError("");
@@ -43,8 +49,9 @@ export default function AuthForm() {
         placeholder="09123456789"
         value={phone}
         disabled={isLoading}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={handlePhoneChange}
         required
+        maxLength={11}
       />
       {error && <p className={styles.error}>{error}</p>}
       <Button type="submit" disabled={isLoading}>
