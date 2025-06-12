@@ -1,3 +1,4 @@
+import "./global.module.scss";
 import { AuthProvider } from "@/context/auth-context";
 import type { Metadata } from "next";
 import { Lalezar } from "next/font/google";
