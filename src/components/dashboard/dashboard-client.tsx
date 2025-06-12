@@ -5,25 +5,28 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
 import Button from "../ui/button/button";
 import styles from "./dashboard.module.scss";
+import Image from "next/image";
 
 export default function DashboardClient() {
-  const { user, isLoading, logout } = useAuth();
+  const { user, isChecking, logout } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!isChecking && !user) {
       router.push("/auth");
     }
-  }, [user, isLoading, router]);
+  }, [user, isChecking, router]);
 
-  if (isLoading || !user) {
+  if (isChecking || !user) {
     return <div className={styles.loadingScreen}>در حال بارگذاری...</div>;
   }
 
   return (
     <div className={styles.dashboardContainer}>
       <div className={styles.dashboardBox}>
-        <img
+        <Image
+          width={120}
+          height={120}
           src={user.picture.large}
           alt="User Avatar"
           className={styles.avatar}
